@@ -702,8 +702,7 @@ elif page == "🔬 SHAP التفسيري":
                 color=colors_s[::-1], edgecolor="white")
         ax.set_yticks(range(len(shap_features)))
         ax.set_yticklabels(shap_features[::-1], fontsize=9)
-        ax.set_title("SHAP Global Feature Importance
-أهم المتغيرات على مستوى كل العملاء",
+        ax.set_title("SHAP Global Feature Importance - أهم المتغيرات على مستوى كل العملاء",
                      fontweight="bold", color="#1F3864", fontsize=11)
         ax.set_xlabel("Mean |SHAP value|")
         ax.set_facecolor("#F8F9FA")
@@ -723,8 +722,7 @@ elif page == "🔬 SHAP التفسيري":
         ax.set_yticks(range(len(shap_features)))
         ax.set_yticklabels(shap_features[::-1], fontsize=9)
         ax.axvline(0, color="black", linewidth=1.5)
-        ax.set_title("اتجاه تأثير المتغيرات
-أخضر = يزيد التبني | أحمر = يقلصه",
+        ax.set_title("اتجاه تأثير المتغيرات - أخضر يزيد التبني - أحمر يقلصه",
                      fontweight="bold", color="#1F3864", fontsize=11)
         ax.set_xlabel("Mean SHAP value")
         ax.set_facecolor("#F8F9FA")
