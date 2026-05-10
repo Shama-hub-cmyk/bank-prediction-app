@@ -407,14 +407,18 @@ if page == "🔍 التنبؤ بالعميل":
             shap_vals  = explainer.shap_values(X_input)
 
             # معالجة شكل SHAP values
-            if isinstance(shap_vals, list):
+            sv_arr = np.array(shap_vals)
+            if sv_arr.ndim == 3:
+                # شكل (1, 41, 2) — نأخذ الفئة الإيجابية
+                sv = sv_arr[0, :, 1]
+            elif sv_arr.ndim == 2:
+                sv = sv_arr[0]
+            elif isinstance(shap_vals, list):
                 sv = np.array(shap_vals[1][0])
-            elif hasattr(shap_vals, "values"):
-                sv = np.array(shap_vals.values[0])
             else:
-                sv = np.array(shap_vals[0])
+                sv = sv_arr.flatten()
 
-            sv = sv.flatten()
+            sv = sv.flatten().astype(float)
 
             # أهم 10 متغيرات
             feat_names  = TRAIN_COLS
