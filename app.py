@@ -405,17 +405,24 @@ if page == "🔍 التنبؤ بالعميل":
             rf_model   = models["Random Forest ⭐"]
             explainer  = shap.TreeExplainer(rf_model)
             shap_vals  = explainer.shap_values(X_input)
+
+            # معالجة شكل SHAP values
             if isinstance(shap_vals, list):
-                sv = shap_vals[1][0]
+                sv = np.array(shap_vals[1][0])
+            elif hasattr(shap_vals, "values"):
+                sv = np.array(shap_vals.values[0])
             else:
-                sv = shap_vals[0]
+                sv = np.array(shap_vals[0])
+
+            sv = sv.flatten()
 
             # أهم 10 متغيرات
             feat_names  = TRAIN_COLS
             abs_sv      = np.abs(sv)
             top_idx     = np.argsort(abs_sv)[::-1][:10]
+            top_idx     = [int(i) for i in top_idx]
             top_names   = [feat_names[i] for i in top_idx]
-            top_sv      = [sv[i] for i in top_idx]
+            top_sv      = [float(sv[i]) for i in top_idx]
 
             fig, ax = plt.subplots(figsize=(10, 5), facecolor="#F8F9FA")
             colors  = ["#27AE60" if v > 0 else "#E8534A" for v in top_sv]
