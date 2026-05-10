@@ -28,11 +28,11 @@ st.set_page_config(
 st.markdown("""
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap");
-    
+
     * { font-family: "Tajawal", sans-serif !important; }
-    
+
     .main { background-color: #F0F4F8; }
-    
+
     .main-header {
         background: linear-gradient(135deg, #1F3864 0%, #2E75B6 50%, #1ABC9C 100%);
         padding: 2.5rem 2rem;
@@ -42,10 +42,10 @@ st.markdown("""
         color: white;
         box-shadow: 0 8px 32px rgba(31,56,100,0.3);
     }
-    
+
     .main-header h1 { font-size: 2.2rem; font-weight: 800; margin: 0 0 0.5rem; }
     .main-header p  { font-size: 1rem; opacity: 0.9; margin: 0.2rem 0; }
-    
+
     .card {
         background: white;
         border-radius: 12px;
@@ -54,12 +54,12 @@ st.markdown("""
         box-shadow: 0 2px 12px rgba(0,0,0,0.08);
         border-top: 4px solid #2E75B6;
     }
-    
+
     .card-green  { border-top-color: #27AE60; }
     .card-red    { border-top-color: #E8534A; }
     .card-orange { border-top-color: #F39C12; }
     .card-purple { border-top-color: #8E44AD; }
-    
+
     .result-yes {
         background: linear-gradient(135deg, #27AE60, #2ECC71);
         padding: 2rem;
@@ -71,7 +71,7 @@ st.markdown("""
         box-shadow: 0 8px 24px rgba(39,174,96,0.4);
         animation: pulse 2s infinite;
     }
-    
+
     .result-no {
         background: linear-gradient(135deg, #E8534A, #E74C3C);
         padding: 2rem;
@@ -82,7 +82,7 @@ st.markdown("""
         font-weight: 800;
         box-shadow: 0 8px 24px rgba(232,83,74,0.4);
     }
-    
+
     .metric-box {
         background: linear-gradient(135deg, #F8F9FA, #E9ECEF);
         border-radius: 12px;
@@ -90,19 +90,19 @@ st.markdown("""
         text-align: center;
         border: 1px solid #DEE2E6;
     }
-    
+
     .metric-value {
         font-size: 2rem;
         font-weight: 800;
         color: #1F3864;
     }
-    
+
     .metric-label {
         font-size: 0.85rem;
         color: #6C757D;
         margin-top: 0.3rem;
     }
-    
+
     .section-title {
         font-size: 1.4rem;
         font-weight: 700;
@@ -111,7 +111,7 @@ st.markdown("""
         padding-right: 0.8rem;
         margin: 1.5rem 0 1rem;
     }
-    
+
     .stButton > button {
         background: linear-gradient(135deg, #1F3864, #2E75B6) !important;
         color: white !important;
@@ -123,9 +123,9 @@ st.markdown("""
         width: 100% !important;
         box-shadow: 0 4px 15px rgba(31,56,100,0.3) !important;
     }
-    
+
     .tab-content { padding: 1rem 0; }
-    
+
     .insight-box {
         background: linear-gradient(135deg, #EBF5FB, #D6EAF8);
         border-right: 4px solid #2E75B6;
@@ -134,7 +134,7 @@ st.markdown("""
         margin: 0.5rem 0;
         font-size: 0.95rem;
     }
-    
+
     .warning-box {
         background: linear-gradient(135deg, #FEF9E7, #FCF3CF);
         border-right: 4px solid #F39C12;
@@ -142,7 +142,7 @@ st.markdown("""
         border-radius: 8px;
         margin: 0.5rem 0;
     }
-    
+
     .success-box {
         background: linear-gradient(135deg, #EAFAF1, #D5F5E3);
         border-right: 4px solid #27AE60;
@@ -150,9 +150,9 @@ st.markdown("""
         border-radius: 8px;
         margin: 0.5rem 0;
     }
-    
+
     .sidebar .sidebar-content { background: #1F3864; }
-    
+
     @keyframes pulse {
         0%   { box-shadow: 0 8px 24px rgba(39,174,96,0.4); }
         50%  { box-shadow: 0 8px 36px rgba(39,174,96,0.7); }
@@ -192,9 +192,10 @@ models, scaler = load_all()
 # ══════════════════════════════════════════════════════════════
 st.markdown("""
 <div class="main-header">
-    <h1>🏦 نظام ذكي للتنبؤ بتبني الخدمات البنكية الرقمية</h1>
-    <p>تصميم نظام ذكي باستخدام تقنيات التعلم الآلي — Bank Marketing Dataset</p>
-    <p>شيماء الضاومي | ماستر الهندسة المالية التشاركية والذكاء الاصطناعي | FSJES عين السبع 2025-2026</p>
+    <h1>🏦 BankPredict AI</h1>
+    <h3 style="font-weight:500; margin:0.3rem 0;">نظام ذكي للتنبؤ بسلوك العملاء المصرفيين</h3>
+    <p style="margin:0.8rem 0 0.2rem;">Predicting Digital Banking Service Adoption using Machine Learning</p>
+    <p>التنبؤ بتبني الخدمات البنكية الرقمية باستخدام التعلم الآلي</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -733,7 +734,7 @@ elif page == "🔬 SHAP التفسيري":
     st.markdown('<p class="section-title">📝 التفسير الأكاديمي لنتائج SHAP</p>',
                 unsafe_allow_html=True)
     insights = [
-        ("campaign", "عدد الاتصالات — الأقوى تأثيراً", 
+        ("campaign", "عدد الاتصالات — الأقوى تأثيراً",
          "كلما زاد عدد الاتصالات قلّ احتمال التبني. الإلحاح يُنفّر العملاء."),
         ("poutcome_success", "نجاح الحملة السابقة — إيجابي قوي",
          "العميل الذي استجاب لحملة سابقة احتمال تبنيه 64.7% — استهدفه أولاً."),
